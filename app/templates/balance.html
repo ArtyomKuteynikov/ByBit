@@ -1,0 +1,45 @@
+<!-- templates/index.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="title">
+        Баланс (деривативы)
+    </h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% if 'Успех' in messages[0] %}
+                <div class="notification is-success">
+                    {{ messages[0] }}
+                </div>
+            {% else %}
+                <div class="notification is-danger">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endwith %}
+    <div style="display: flex;
+    justify-content: center;">
+    <table class="table is-fullwidth" style="width: fit-content;">
+        <thead>
+        <tr>
+            <th>Ticker</th>
+            <th>Amount</th>
+            <th>PNL</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for pool in coins %}
+            <tr style="
+    font-size: 15px;
+">
+                <td data-label="Ticker">{{ pool.coin }}</td>
+                <td data-label="Amount">{{ pool.walletBalance }}</td>
+                <td data-label="PnL">{{ pool.cumRealisedPnl }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table></div>
+
+{% endblock %}

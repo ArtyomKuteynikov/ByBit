@@ -1,0 +1,282 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ByBit BOT</title>
+    <link rel="icon" href="{{ url_for('static', filename="image.png") }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:500,800" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/js/standalone/selectize.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/css/selectize.default.min.css"/>
+    <meta charset="utf-8">
+    <script>
+        if (window.matchMedia("(max-width: 767px)").matches) {
+            const $navDropdowns = document.querySelectorAll(".navbar-item.has-dropdown");
+            if ($navDropdowns.length > 0) {
+                // HIDE THE DROP-DOWN ON THE INITIAL LOAD
+                $navDropdowns.forEach((el) => {
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+                    $target.style.display = "none";
+
+                    //Register the click event on the dropdown list
+                    el.addEventListener("click", () => {
+                        // Get the target from the "data-target" attribute
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+
+                        if ($target.style.display === "block") {
+                            $target.style.display = "none";
+                        } else {
+                            $target.style.display = "block";
+                        }
+                    });
+                });
+            }
+        }
+    </script>
+    <style>
+        table {
+            background-color: transparent;
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .container {
+            min-width: 320px;
+            max-width: 100%;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: fit-content;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table td, table th {
+            padding: 10px;
+            border: 1px solid #cbbdbd;
+        }
+
+        tr:nth-child(even){
+            background-color: #f0f4c3
+        }
+        @media (min-width: 720px){
+
+        }
+        @media (max-width: 720px) {
+            .container table thead {
+                display: none;
+            }
+            .container table tr {
+                display: block;
+            }
+            .container table td {
+                display: flex;
+                justify-content: space-between;
+                font-size: 14px;
+            }
+            .container table td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                margin-right: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<section class="hero is-primary is-fullheight" style="background-color: #bda55d">
+    <div id="#main">
+        <div class="hero-head">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                       data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div id="navbarBasicExample" class="navbar-menu" style="background-color: transparent;">
+                    <div class="navbar-end">
+                        {% if current_user.is_authenticated %}
+                            <a href="{{ url_for('main.index') }}" class="navbar-item">
+                                Pools
+                            </a>
+                            <a href="{{ url_for('main.balance') }}" class="navbar-item">
+                                Balance
+                            </a>
+                            <a href="{{ url_for('main.positions') }}" class="navbar-item">
+                                Positions
+                            </a>
+                        {% endif %}
+                        {% if not current_user.is_authenticated %}
+                            <a href="{{ url_for('auth.login') }}" class="navbar-item">
+                                Войти
+                            </a>
+                        {% endif %}
+                        {% if current_user.is_authenticated %}
+                            <a href="{{ url_for('main.profile', action="view") }}" class="navbar-item">
+                                Профиль
+                            </a>
+                            <a href="{{ url_for('auth.signup') }}" class="navbar-item">
+                                Добавить пользователя
+                            </a>
+                            <a href="{{ url_for('auth.logout') }}" class="navbar-item">
+                                Выйти
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+
+                // Get all "navbar-burger" elements
+                const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+                // Add a click event on each of them
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+
+                        // Get the target from the "data-target" attribute
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+
+                        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+
+                    });
+                });
+
+            });
+        </script>
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript"
+                    src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                {
+                    "symbols"
+                :
+                    [
+                        {
+                            "description": "BTC",
+                            "proName": "BYBIT:BTCUSDT.P"
+                        },
+                        {
+                            "description": "ETH",
+                            "proName": "BYBIT:ETHUSDT.P"
+                        },
+                        {
+                            "description": "XRP",
+                            "proName": "BYBIT:XRPUSDT.P"
+                        },
+                        {
+                            "description": "LTC",
+                            "proName": "BYBIT:LTCUSDT.P"
+                        },
+                        {
+                            "description": "ADA",
+                            "proName": "BYBIT:ADAUSDT.P"
+                        },
+                        {
+                            "description": "BNB",
+                            "proName": "BYBIT:BNBUSDT.P"
+                        }
+                    ],
+                        "showSymbolLogo"
+                :
+                    true,
+                        "colorTheme"
+                :
+                    "light",
+                        "isTransparent"
+                :
+                    true,
+                        "displayMode"
+                :
+                    "adaptive",
+                        "locale"
+                :
+                    "ru"
+                }
+            </script>
+        </div>
+        <!-- TradingView Widget END -->
+        <div class="hero-body">
+            <div class="container has-text-centered">
+
+                <img src="{{ url_for('static', filename="image.png") }}" width="20%">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Functions to open and close a modal
+        function openModal($el) {
+            $el.classList.add('is-active');
+        }
+
+        function closeModal($el) {
+            $el.classList.remove('is-active');
+        }
+
+        function closeAllModals() {
+            (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+                closeModal($modal);
+            });
+        }
+
+        // Add a click event on buttons to open a specific modal
+        (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+            const modal = $trigger.dataset.target;
+            const $target = document.getElementById(modal);
+
+            $trigger.addEventListener('click', () => {
+                openModal($target);
+            });
+        });
+
+        // Add a click event on various child elements to close the parent modal
+        (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
+            const $target = $close.closest('.modal');
+
+            $close.addEventListener('click', () => {
+                closeModal($target);
+            });
+        });
+
+        // Add a keyboard event to close all modals
+        document.addEventListener('keydown', (event) => {
+            const e = event || window.event;
+
+            if (e.keyCode === 27) { // Escape key
+                closeAllModals();
+            }
+        });
+    });
+</script>
+</html>

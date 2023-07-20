@@ -1,0 +1,165 @@
+<!-- templates/index.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="title">
+        Обновите ссылку на Pool
+    </h1>
+    <h2 class="subtitle">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% if 'Успех' in messages[0] %}
+                    <div class="notification is-success">
+                        {{ messages[0] }}
+                    </div>
+                {% else %}
+                    <div class="notification is-danger">
+                        {{ messages[0] }}
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endwith %}
+    <div class="container" style="display: flex;justify-content: center">
+        <table class="table is-fullwidth" style="width: fit-content;">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>URL</th>
+                <th>Channel ID</th>
+                <th>Working</th>
+                <th>Start/Stop</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for pool in pools %}
+                <tr style="
+    font-size: 15px;
+">
+                    <td  data-label="ID">{{ pool.id }}</td>
+                    <td data-label="URL"><a target="_blank" href="{{ pool.url }}">{{ pool.url }}</a></td>
+                    <td data-label="TG Channel">{{ pool.tg_channel }}</td>
+                    {% if pool.stopped %}
+                        <td data-label="Working" style="color: red">Stopped</td>
+                    {% elif not pool.working %}
+                        <td data-label="Working" style="color: darkgoldenrod">Broken</td>
+                    {% else %}
+                        <td data-label="Working" style="color: green">Working</td>
+                    {% endif %}
+                    {% if not pool.stopped %}
+                        <td data-label="Start/Stop"><a class="button is-danger" href="{{ url_for('main.stop_pool', id=pool.id) }}"
+                               id="button1"
+                               onclick="changeClass1()">Stop</a>
+                        </td>
+                    {% else %}
+                        <td data-label="Start/Stop"><a class="button is-success" href="{{ url_for('main.start_pool', id=pool.id) }}"
+                               id="button1" onclick="changeClass1()">Start</a>
+                        </td>
+                    {% endif %}
+                    {% if (not pool.amount_1 or not pool.amount_2) and not pool.stopped %}
+                        <td>
+                            <a class="button is-success" href="{{ url_for('main.first_short', id=pool.id) }}"
+                               id="button3"
+                               onclick="changeClass3()">Сделать первый шорт</a>
+                        </td>
+                    {% else %}
+                        <td>
+                            <p>{{ pnls[pool.id]|safe }}</p>
+                        </td>
+                    {% endif %}
+                    <td>
+                        <button class="js-modal-trigger button is-block is-warning"
+                                data-target="edit-{{ pool.id }}">
+                            ✏️
+                        </button>
+                    </td>
+                    <td>
+                        <button class="js-modal-trigger button is-block is-danger"
+                                data-target="delete-{{ pool.id }}">
+                            🗑️
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="8">
+                    <button class="js-modal-trigger button is-block is-info is-fullwidth" data-target="add">
+                        Add pool
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="add" class="modal">
+            <div class="modal-background"></div>
+
+            <div class="modal-content">
+                <div class="box">
+                    <form method="POST" action="{{ url_for("main.add_pool") }}" class="has-text-centered">
+                        <input name="url" placeholder="Ссылка" class="input">
+                        <input name="channel" placeholder="ID канала(чата)" class="input">
+                        <input name="admins" placeholder="ID получатлей информации о закрытии позиций" class="input">
+                        <button class="button is-block is-info is-fullwidth" id="button2" onclick="changeClass2()">
+                            Добавить
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+        {% for i in pools %}
+            <div id="edit-{{ i.id }}" class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                    <div class="box">
+                        <form method="POST" action="{{ url_for("main.edit_pool", id=i.id) }}" class="has-text-centered">
+                            <input name="url" placeholder="Ссылка" class="input" value="{{ i.url }}">
+                            <input name="channel" placeholder="ID канала(чата)" class="input"
+                                   value="{{ i.tg_channel }}">
+                            <input name="admins" placeholder="ID получатлей информации о закрытии позиций" class="input"
+                                   value="{{ i.admins }}">
+                            <button class="button is-block is-info is-fullwidth" id="button2" onclick="changeClass2()">
+                                Добавить
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <button class="modal-close is-large" aria-label="close"></button>
+            </div>
+            <div id="delete-{{ i.id }}" class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                    <div class="box">
+                        <p>Вы уверены что хотите удалить пулл?</p>
+                        <form method="POST" action="{{ url_for("main.delete_pool", id=i.id) }}"
+                              class="has-text-centered">
+                            <button class="button is-block is-danger is-fullwidth" id="button2"
+                                    onclick="changeClass2()">
+                                Удалить
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <button class="modal-close is-large" aria-label="close"></button>
+            </div>
+        {% endfor %}
+    </h2>
+    <script>
+        function changeClass1() {
+            document.getElementById("button1").className += " is-loading";
+        }
+
+        function changeClass2() {
+            document.getElementById("button2").className += " is-loading";
+        }
+
+        function changeClass3() {
+            document.getElementById("button3").className += " is-loading";
+        }
+
+    </script>
+{% endblock %}

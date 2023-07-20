@@ -1,0 +1,251 @@
+Collecting cryptography
+  Using cached https://files.pythonhosted.org/packages/6a/f5/a729774d087e50fffd1438b3877a91e9281294f985bda0fd15bf99016c78/cryptography-39.0.1.tar.gz
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+    Preparing wheel metadata: started
+    Preparing wheel metadata: finished with status 'done'
+Requirement already satisfied: cffi>=1.12 in c:\users\asus\downloads\flask_auth_scotch-master\flask_auth_scotch-master\project\venv\lib\site-packages (from cryptography) (1.15.1)
+Requirement already satisfied: pycparser in c:\users\asus\downloads\flask_auth_scotch-master\flask_auth_scotch-master\project\venv\lib\site-packages (from cffi>=1.12->cryptography) (2.21)
+Building wheels for collected packages: cryptography
+  Building wheel for cryptography (PEP 517): started
+  Building wheel for cryptography (PEP 517): finished with status 'error'
+  Complete output from command C:\Users\asus\Downloads\flask_auth_scotch-master\flask_auth_scotch-master\project\venv\Scripts\python.exe c:\users\asus\downloads\flask_auth_scotch-master\flask_auth_scotch-master\project\venv\lib\site-packages\pip-19.0.3-py3.8.egg\pip\_vendor\pep517\_in_process.py build_wheel C:\Users\asus\AppData\Local\Temp\tmpo8_gvw6o:
+  running bdist_wheel
+  running build
+  running build_py
+  creating build
+  creating build\lib.win32-cpython-38
+  creating build\lib.win32-cpython-38\cryptography
+  copying src\cryptography\exceptions.py -> build\lib.win32-cpython-38\cryptography
+  copying src\cryptography\fernet.py -> build\lib.win32-cpython-38\cryptography
+  copying src\cryptography\utils.py -> build\lib.win32-cpython-38\cryptography
+  copying src\cryptography\__about__.py -> build\lib.win32-cpython-38\cryptography
+  copying src\cryptography\__init__.py -> build\lib.win32-cpython-38\cryptography
+  creating build\lib.win32-cpython-38\cryptography\hazmat
+  copying src\cryptography\hazmat\_oid.py -> build\lib.win32-cpython-38\cryptography\hazmat
+  copying src\cryptography\hazmat\__init__.py -> build\lib.win32-cpython-38\cryptography\hazmat
+  creating build\lib.win32-cpython-38\cryptography\x509
+  copying src\cryptography\x509\base.py -> build\lib.win32-cpython-38\cryptography\x509
+  copying src\cryptography\x509\certificate_transparency.py -> build\lib.win32-cpython-38\cryptography\x509
+  copying src\cryptography\x509\extensions.py -> build\lib.win32-cpython-38\cryptography\x509
+  copying src\cryptography\x509\general_name.py -> build\lib.win32-cpython-38\cryptography\x509
+  copying src\cryptography\x509\name.py -> build\lib.win32-cpython-38\cryptography\x509
+  copying src\cryptography\x509\ocsp.py -> build\lib.win32-cpython-38\cryptography\x509
+  copying src\cryptography\x509\oid.py -> build\lib.win32-cpython-38\cryptography\x509
+  copying src\cryptography\x509\__init__.py -> build\lib.win32-cpython-38\cryptography\x509
+  creating build\lib.win32-cpython-38\cryptography\hazmat\backends
+  copying src\cryptography\hazmat\backends\__init__.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends
+  creating build\lib.win32-cpython-38\cryptography\hazmat\bindings
+  copying src\cryptography\hazmat\bindings\__init__.py -> build\lib.win32-cpython-38\cryptography\hazmat\bindings
+  creating build\lib.win32-cpython-38\cryptography\hazmat\primitives
+  copying src\cryptography\hazmat\primitives\cmac.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives
+  copying src\cryptography\hazmat\primitives\constant_time.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives
+  copying src\cryptography\hazmat\primitives\hashes.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives
+  copying src\cryptography\hazmat\primitives\hmac.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives
+  copying src\cryptography\hazmat\primitives\keywrap.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives
+  copying src\cryptography\hazmat\primitives\padding.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives
+  copying src\cryptography\hazmat\primitives\poly1305.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives
+  copying src\cryptography\hazmat\primitives\_asymmetric.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives
+  copying src\cryptography\hazmat\primitives\_cipheralgorithm.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives
+  copying src\cryptography\hazmat\primitives\_serialization.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives
+  copying src\cryptography\hazmat\primitives\__init__.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives
+  creating build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\aead.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\backend.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\ciphers.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\cmac.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\decode_asn1.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\dh.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\dsa.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\ec.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\ed25519.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\ed448.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\hashes.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\hmac.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\poly1305.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\rsa.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\utils.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\x25519.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\x448.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  copying src\cryptography\hazmat\backends\openssl\__init__.py -> build\lib.win32-cpython-38\cryptography\hazmat\backends\openssl
+  creating build\lib.win32-cpython-38\cryptography\hazmat\bindings\openssl
+  copying src\cryptography\hazmat\bindings\openssl\binding.py -> build\lib.win32-cpython-38\cryptography\hazmat\bindings\openssl
+  copying src\cryptography\hazmat\bindings\openssl\_conditional.py -> build\lib.win32-cpython-38\cryptography\hazmat\bindings\openssl
+  copying src\cryptography\hazmat\bindings\openssl\__init__.py -> build\lib.win32-cpython-38\cryptography\hazmat\bindings\openssl
+  creating build\lib.win32-cpython-38\cryptography\hazmat\primitives\asymmetric
+  copying src\cryptography\hazmat\primitives\asymmetric\dh.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\asymmetric
+  copying src\cryptography\hazmat\primitives\asymmetric\dsa.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\asymmetric
+  copying src\cryptography\hazmat\primitives\asymmetric\ec.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\asymmetric
+  copying src\cryptography\hazmat\primitives\asymmetric\ed25519.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\asymmetric
+  copying src\cryptography\hazmat\primitives\asymmetric\ed448.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\asymmetric
+  copying src\cryptography\hazmat\primitives\asymmetric\padding.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\asymmetric
+  copying src\cryptography\hazmat\primitives\asymmetric\rsa.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\asymmetric
+  copying src\cryptography\hazmat\primitives\asymmetric\types.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\asymmetric
+  copying src\cryptography\hazmat\primitives\asymmetric\utils.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\asymmetric
+  copying src\cryptography\hazmat\primitives\asymmetric\x25519.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\asymmetric
+  copying src\cryptography\hazmat\primitives\asymmetric\x448.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\asymmetric
+  copying src\cryptography\hazmat\primitives\asymmetric\__init__.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\asymmetric
+  creating build\lib.win32-cpython-38\cryptography\hazmat\primitives\ciphers
+  copying src\cryptography\hazmat\primitives\ciphers\aead.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\ciphers
+  copying src\cryptography\hazmat\primitives\ciphers\algorithms.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\ciphers
+  copying src\cryptography\hazmat\primitives\ciphers\base.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\ciphers
+  copying src\cryptography\hazmat\primitives\ciphers\modes.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\ciphers
+  copying src\cryptography\hazmat\primitives\ciphers\__init__.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\ciphers
+  creating build\lib.win32-cpython-38\cryptography\hazmat\primitives\kdf
+  copying src\cryptography\hazmat\primitives\kdf\concatkdf.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\kdf
+  copying src\cryptography\hazmat\primitives\kdf\hkdf.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\kdf
+  copying src\cryptography\hazmat\primitives\kdf\kbkdf.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\kdf
+  copying src\cryptography\hazmat\primitives\kdf\pbkdf2.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\kdf
+  copying src\cryptography\hazmat\primitives\kdf\scrypt.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\kdf
+  copying src\cryptography\hazmat\primitives\kdf\x963kdf.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\kdf
+  copying src\cryptography\hazmat\primitives\kdf\__init__.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\kdf
+  creating build\lib.win32-cpython-38\cryptography\hazmat\primitives\serialization
+  copying src\cryptography\hazmat\primitives\serialization\base.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\serialization
+  copying src\cryptography\hazmat\primitives\serialization\pkcs12.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\serialization
+  copying src\cryptography\hazmat\primitives\serialization\pkcs7.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\serialization
+  copying src\cryptography\hazmat\primitives\serialization\ssh.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\serialization
+  copying src\cryptography\hazmat\primitives\serialization\__init__.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\serialization
+  creating build\lib.win32-cpython-38\cryptography\hazmat\primitives\twofactor
+  copying src\cryptography\hazmat\primitives\twofactor\hotp.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\twofactor
+  copying src\cryptography\hazmat\primitives\twofactor\totp.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\twofactor
+  copying src\cryptography\hazmat\primitives\twofactor\__init__.py -> build\lib.win32-cpython-38\cryptography\hazmat\primitives\twofactor
+  running egg_info
+  writing src\cryptography.egg-info\PKG-INFO
+  writing dependency_links to src\cryptography.egg-info\dependency_links.txt
+  writing requirements to src\cryptography.egg-info\requires.txt
+  writing top-level names to src\cryptography.egg-info\top_level.txt
+  reading manifest file 'src\cryptography.egg-info\SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  no previously-included directories found matching 'docs\_build'
+  warning: no previously-included files found matching 'vectors'
+  warning: no previously-included files matching '*' found under directory 'vectors'
+  warning: no previously-included files matching '*' found under directory '.github'
+  warning: no previously-included files found matching 'release.py'
+  warning: no previously-included files found matching '.readthedocs.yml'
+  warning: no previously-included files found matching 'ci-constraints-requirements.txt'
+  warning: no previously-included files found matching 'tox.ini'
+  warning: no previously-included files found matching 'mypy.ini'
+  adding license file 'LICENSE'
+  adding license file 'LICENSE.APACHE'
+  adding license file 'LICENSE.BSD'
+  adding license file 'LICENSE.PSF'
+  writing manifest file 'src\cryptography.egg-info\SOURCES.txt'
+  copying src\cryptography\py.typed -> build\lib.win32-cpython-38\cryptography
+  copying src\cryptography\hazmat\bindings\_openssl.pyi -> build\lib.win32-cpython-38\cryptography\hazmat\bindings
+  creating build\lib.win32-cpython-38\cryptography\hazmat\bindings\_rust
+  copying src\cryptography\hazmat\bindings\_rust\__init__.pyi -> build\lib.win32-cpython-38\cryptography\hazmat\bindings\_rust
+  copying src\cryptography\hazmat\bindings\_rust\asn1.pyi -> build\lib.win32-cpython-38\cryptography\hazmat\bindings\_rust
+  copying src\cryptography\hazmat\bindings\_rust\ocsp.pyi -> build\lib.win32-cpython-38\cryptography\hazmat\bindings\_rust
+  copying src\cryptography\hazmat\bindings\_rust\pkcs7.pyi -> build\lib.win32-cpython-38\cryptography\hazmat\bindings\_rust
+  copying src\cryptography\hazmat\bindings\_rust\x509.pyi -> build\lib.win32-cpython-38\cryptography\hazmat\bindings\_rust
+  running build_ext
+  running build_rust
+  C:\Users\asus\AppData\Local\Temp\pip-build-env-k83b69b2\overlay\Lib\site-packages\setuptools\command\build_py.py:202: SetuptoolsDeprecationWarning:     Installing 'cryptography.hazmat.bindings._rust' as data is deprecated, please list it in `packages`.
+      !!
+  
+  
+      ############################
+      # Package would be ignored #
+      ############################
+      Python recognizes 'cryptography.hazmat.bindings._rust' as an importable package,
+      but it is not listed in the `packages` configuration of setuptools.
+  
+      'cryptography.hazmat.bindings._rust' has been automatically added to the distribution only
+      because it may contain data files, but this behavior is likely to change
+      in future versions of setuptools (and therefore is considered deprecated).
+  
+      Please make sure that 'cryptography.hazmat.bindings._rust' is included as a package by using
+      the `packages` configuration field or the proper discovery methods
+      (for example by using `find_namespace_packages(...)`/`find_namespace:`
+      instead of `find_packages(...)`/`find:`).
+  
+      You can read more about "package discovery" and "data files" on setuptools
+      documentation page.
+  
+  
+  !!
+  
+    check.warn(importable)
+  
+      =============================DEBUG ASSISTANCE=============================
+      If you are seeing a compilation error please try the following steps to
+      successfully install cryptography:
+      1) Upgrade to the latest pip and try again. This will fix errors for most
+         users. See: https://pip.pypa.io/en/stable/installing/#upgrading-pip
+      2) Read https://cryptography.io/en/latest/installation/ for specific
+         instructions for your platform.
+      3) Check our frequently asked questions for more information:
+         https://cryptography.io/en/latest/faq/
+      4) Ensure you have a recent Rust toolchain installed:
+         https://cryptography.io/en/latest/installation/#rust
+  
+      Python: 3.8.1
+      platform: Windows-10-10.0.22000-SP0
+      pip: n/a
+      setuptools: 67.4.0
+      setuptools_rust: 1.5.2
+      rustc: n/a
+      =============================DEBUG ASSISTANCE=============================
+  
+  error: can't find Rust compiler
+  
+  If you are using an outdated pip version, it is possible a prebuilt wheel is available for this package but pip is not able to install from it. Installing from the wheel would avoid the need for a Rust compiler.
+  
+  To update pip, run:
+  
+      pip install --upgrade pip
+  
+  and then retry package installation.
+  
+  If you did intend to build this package from source, try installing a Rust compiler from your system package manager and ensure it is on the PATH during installation. Alternatively, rustup (available at https://rustup.rs) is the recommended way to download and update the Rust compiler toolchain.
+  
+  This package requires Rust >=1.48.0.
+  
+  ----------------------------------------
+  Running setup.py clean for cryptography
+  Complete output from command C:\Users\asus\Downloads\flask_auth_scotch-master\flask_auth_scotch-master\project\venv\Scripts\python.exe -u -c "import setuptools, tokenize;__file__='C:\\Users\\asus\\AppData\\Local\\Temp\\pip-install-cx5ig_u5\\cryptography\\setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" clean --all:
+  running clean
+  removing 'build\lib.win32-cpython-38' (and everything under it)
+  'build\bdist.win32' does not exist -- can't clean it
+  'build\scripts-3.8' does not exist -- can't clean it
+  removing 'build'
+  running clean_rust
+  
+      =============================DEBUG ASSISTANCE=============================
+      If you are seeing a compilation error please try the following steps to
+      successfully install cryptography:
+      1) Upgrade to the latest pip and try again. This will fix errors for most
+         users. See: https://pip.pypa.io/en/stable/installing/#upgrading-pip
+      2) Read https://cryptography.io/en/latest/installation/ for specific
+         instructions for your platform.
+      3) Check our frequently asked questions for more information:
+         https://cryptography.io/en/latest/faq/
+      4) Ensure you have a recent Rust toolchain installed:
+         https://cryptography.io/en/latest/installation/#rust
+  
+      Python: 3.8.1
+      platform: Windows-10-10.0.22000-SP0
+      pip: n/a
+      setuptools: 67.4.0
+      setuptools_rust: 1.5.2
+      rustc: n/a
+      =============================DEBUG ASSISTANCE=============================
+  
+  error: can't find Rust compiler
+  
+  If you are using an outdated pip version, it is possible a prebuilt wheel is available for this package but pip is not able to install from it. Installing from the wheel would avoid the need for a Rust compiler.
+  
+  To update pip, run:
+  
+      pip install --upgrade pip
+  
+  and then retry package installation.
+  
+  If you did intend to build this package from source, try installing a Rust compiler from your system package manager and ensure it is on the PATH during installation. Alternatively, rustup (available at https://rustup.rs) is the recommended way to download and update the Rust compiler toolchain.
+  
+  This package requires Rust >=1.48.0.
+  
+  ----------------------------------------
+Failed to build cryptography

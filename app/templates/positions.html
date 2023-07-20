@@ -1,0 +1,50 @@
+<!-- templates/index.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="title">
+        Позиции (деривативы)
+    </h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% if 'Успех' in messages[0] %}
+                <div class="notification is-success">
+                    {{ messages[0] }}
+                </div>
+            {% else %}
+                <div class="notification is-danger">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endwith %}
+    <div style="display: flex;
+    justify-content: center;">
+    <table class="table is-fullwidth" style="width: fit-content;">
+        <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Amount</th>
+            <th>PnL</th>
+            <th>Side</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for pool in positions %}
+            <tr style="
+    font-size: 15px;
+">
+                <td data-label="Symbol">{{ pool.symbol }}</td>
+                <td data-label="Amount">{{ pool.side_both }}</td>
+                <td data-label="PnL">{{ pool.pnl }}</td>
+                <td data-label="Side">{{ pool.side }}</td>
+                <td data-label="Date">{{ pool.date }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+{% endblock %}
